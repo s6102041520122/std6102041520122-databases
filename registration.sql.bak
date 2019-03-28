@@ -1,4 +1,3 @@
-DROP TABLE viewing;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
@@ -24,15 +23,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `viewing`
+-- Table structure for table `registration`
 --
 
-CREATE TABLE `viewing` (
+CREATE TABLE `registration` (
   `id` int(11) NOT NULL,
   `client_no` varchar(5) NOT NULL,
-  `property_no` varchar(5) NOT NULL,
-  `viewDate` date DEFAULT NULL,
-  `comment` text
+  `branch_no` varchar(5) NOT NULL,
+  `staff_no` varchar(5) NOT NULL,
+  `dateJoined` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -40,9 +39,9 @@ CREATE TABLE `viewing` (
 --
 
 --
--- Indexes for table `viewing`
+-- Indexes for table `registration`
 --
-ALTER TABLE `viewing`
+ALTER TABLE `registration`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -50,9 +49,9 @@ ALTER TABLE `viewing`
 --
 
 --
--- AUTO_INCREMENT for table `viewing`
+-- AUTO_INCREMENT for table `registration`
 --
-ALTER TABLE `viewing`
+ALTER TABLE `registration`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

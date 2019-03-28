@@ -1,10 +1,9 @@
-DROP TABLE viewing;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 05:42 PM
+-- Generation Time: Mar 27, 2019 at 05:41 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -24,15 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `viewing`
+-- Table structure for table `client`
 --
 
-CREATE TABLE `viewing` (
+CREATE TABLE `client` (
   `id` int(11) NOT NULL,
   `client_no` varchar(5) NOT NULL,
-  `property_no` varchar(5) NOT NULL,
-  `viewDate` date DEFAULT NULL,
-  `comment` text
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(20) NOT NULL,
+  `telephone` int(11) DEFAULT NULL,
+  `pref_type` varchar(10) DEFAULT NULL,
+  `max_rent` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -40,9 +41,9 @@ CREATE TABLE `viewing` (
 --
 
 --
--- Indexes for table `viewing`
+-- Indexes for table `client`
 --
-ALTER TABLE `viewing`
+ALTER TABLE `client`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -50,9 +51,9 @@ ALTER TABLE `viewing`
 --
 
 --
--- AUTO_INCREMENT for table `viewing`
+-- AUTO_INCREMENT for table `client`
 --
-ALTER TABLE `viewing`
+ALTER TABLE `client`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
