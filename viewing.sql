@@ -1,10 +1,9 @@
-DROP TABLE viewing;
 -- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 05:42 PM
+-- Generation Time: Apr 03, 2019 at 03:22 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -29,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `viewing` (
   `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
-  `property_no` varchar(5) NOT NULL,
+  `client_no` int(11) NOT NULL,
+  `property_id` int(11) NOT NULL,
   `viewDate` date DEFAULT NULL,
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -43,7 +42,8 @@ CREATE TABLE `viewing` (
 -- Indexes for table `viewing`
 --
 ALTER TABLE `viewing`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `property_id_idx` (`property_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -54,6 +54,16 @@ ALTER TABLE `viewing`
 --
 ALTER TABLE `viewing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `viewing`
+--
+ALTER TABLE `viewing`
+  ADD CONSTRAINT `property_id` FOREIGN KEY (`property_id`) REFERENCES `property_for_rent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
