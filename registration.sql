@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2019 at 03:21 PM
+-- Generation Time: Apr 04, 2019 at 02:16 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `registration` (
   `id` int(11) NOT NULL,
-  `client_no` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
   `dateJoined` date DEFAULT NULL
@@ -43,7 +43,9 @@ CREATE TABLE `registration` (
 --
 ALTER TABLE `registration`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `staff_id_idx` (`staff_id`);
+  ADD KEY `staff_id_idx` (`staff_id`),
+  ADD KEY `branch_id_idx` (`branch_id`),
+  ADD KEY `client_id_idx` (`client_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2019 at 03:22 PM
+-- Generation Time: Apr 04, 2019 at 02:17 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `viewing` (
   `id` int(11) NOT NULL,
-  `client_no` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
   `property_id` int(11) NOT NULL,
   `viewDate` date DEFAULT NULL,
   `comment` text
@@ -43,7 +43,8 @@ CREATE TABLE `viewing` (
 --
 ALTER TABLE `viewing`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `property_id_idx` (`property_id`);
+  ADD KEY `property_id_idx` (`property_id`),
+  ADD KEY `client_id_idx` (`client_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables

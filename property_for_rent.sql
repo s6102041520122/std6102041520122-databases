@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2019 at 03:20 PM
+-- Generation Time: Apr 04, 2019 at 02:16 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -36,7 +36,7 @@ CREATE TABLE `property_for_rent` (
   `rooms` int(2) DEFAULT NULL,
   `rent` int(4) DEFAULT NULL,
   `owner_id` int(11) NOT NULL,
-  `staff_no` int(11) DEFAULT NULL,
+  `staff_id` int(11) DEFAULT NULL,
   `branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -49,7 +49,9 @@ CREATE TABLE `property_for_rent` (
 --
 ALTER TABLE `property_for_rent`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `owner_id_idx` (`owner_id`);
+  ADD KEY `owner_id_idx` (`owner_id`),
+  ADD KEY `branch_id_idx` (`branch_id`),
+  ADD KEY `staff_id_idx` (`staff_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
