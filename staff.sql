@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:16 AM
+-- Generation Time: Apr 10, 2019 at 01:32 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -35,7 +35,7 @@ CREATE TABLE `staff` (
   `sex` varchar(1) NOT NULL,
   `dob` date DEFAULT NULL,
   `salary` int(10) NOT NULL,
-  `branch_id` int(11) NOT NULL
+  `fk_staff_branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `staff` (
 --
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `branch_id_idx` (`branch_id`);
+  ADD KEY `fk_staff_branch_id_idx` (`fk_staff_branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -66,7 +66,7 @@ ALTER TABLE `staff`
 -- Constraints for table `staff`
 --
 ALTER TABLE `staff`
-  ADD CONSTRAINT `branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_staff_branch_id` FOREIGN KEY (`fk_staff_branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

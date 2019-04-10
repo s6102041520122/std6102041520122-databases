@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:16 AM
+-- Generation Time: Apr 10, 2019 at 01:32 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,10 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `registration` (
   `id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `branch_id` int(11) NOT NULL,
-  `staff_id` int(11) NOT NULL,
-  `dateJoined` date DEFAULT NULL
+  `fk_registration_client_id` int(11) NOT NULL,
+  `fk_registration_property_id` int(11) NOT NULL,
+  `date_joined` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -43,9 +42,8 @@ CREATE TABLE `registration` (
 --
 ALTER TABLE `registration`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `staff_id_idx` (`staff_id`),
-  ADD KEY `branch_id_idx` (`branch_id`),
-  ADD KEY `client_id_idx` (`client_id`);
+  ADD KEY `fk_registration_client_id_idx` (`fk_registration_client_id`),
+  ADD KEY `fk_registration_property_id_idx` (`fk_registration_property_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -64,7 +62,8 @@ ALTER TABLE `registration`
 -- Constraints for table `registration`
 --
 ALTER TABLE `registration`
-  ADD CONSTRAINT `staff_id` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_registration_client_id` FOREIGN KEY (`fk_registration_client_id`) REFERENCES `client` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_registration_property_id` FOREIGN KEY (`fk_registration_property_id`) REFERENCES `property_for_rent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

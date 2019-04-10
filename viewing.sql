@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:17 AM
+-- Generation Time: Apr 10, 2019 at 01:32 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `viewing` (
   `id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `property_id` int(11) NOT NULL,
-  `viewDate` date DEFAULT NULL,
+  `fk_viewing_client_id` int(11) NOT NULL,
+  `fk_viewing_property_id` int(11) NOT NULL,
+  `view_date` date DEFAULT NULL,
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -43,8 +43,8 @@ CREATE TABLE `viewing` (
 --
 ALTER TABLE `viewing`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `property_id_idx` (`property_id`),
-  ADD KEY `client_id_idx` (`client_id`);
+  ADD KEY `fk_viewing_client_id_idx` (`fk_viewing_client_id`),
+  ADD KEY `fk_viewing_property_id_idx` (`fk_viewing_property_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,7 +63,8 @@ ALTER TABLE `viewing`
 -- Constraints for table `viewing`
 --
 ALTER TABLE `viewing`
-  ADD CONSTRAINT `property_id` FOREIGN KEY (`property_id`) REFERENCES `property_for_rent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_viewing_client_id` FOREIGN KEY (`fk_viewing_client_id`) REFERENCES `client` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_viewing_property_id` FOREIGN KEY (`fk_viewing_property_id`) REFERENCES `property_for_rent` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2019 at 02:16 AM
+-- Generation Time: Apr 10, 2019 at 01:31 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -35,9 +35,9 @@ CREATE TABLE `property_for_rent` (
   `type` varchar(10) DEFAULT NULL,
   `rooms` int(2) DEFAULT NULL,
   `rent` int(4) DEFAULT NULL,
-  `owner_id` int(11) NOT NULL,
-  `staff_id` int(11) DEFAULT NULL,
-  `branch_id` int(11) NOT NULL
+  `fk_pfr_owner_id` int(11) NOT NULL,
+  `fk_pfr_staff_id` int(11) DEFAULT NULL,
+  `fk_pfr_branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -49,9 +49,9 @@ CREATE TABLE `property_for_rent` (
 --
 ALTER TABLE `property_for_rent`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `owner_id_idx` (`owner_id`),
-  ADD KEY `branch_id_idx` (`branch_id`),
-  ADD KEY `staff_id_idx` (`staff_id`);
+  ADD KEY `fk_pfr_owner_id_idx` (`fk_pfr_owner_id`),
+  ADD KEY `fk_pfr_staff_id_idx` (`fk_pfr_staff_id`),
+  ADD KEY `fk_pfr_branch_id_idx` (`fk_pfr_branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -70,7 +70,9 @@ ALTER TABLE `property_for_rent`
 -- Constraints for table `property_for_rent`
 --
 ALTER TABLE `property_for_rent`
-  ADD CONSTRAINT `owner_id` FOREIGN KEY (`owner_id`) REFERENCES `private_owner` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_pfr_branch_id` FOREIGN KEY (`fk_pfr_branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pfr_owner_id` FOREIGN KEY (`fk_pfr_owner_id`) REFERENCES `private_owner` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pfr_staff_id` FOREIGN KEY (`fk_pfr_staff_id`) REFERENCES `staff` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
